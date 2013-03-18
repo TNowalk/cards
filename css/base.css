@@ -1,0 +1,164 @@
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+html, body {
+	height: 100%;
+}
+body {
+	background-color: #efefef;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	margin: 0 auto;
+	width: 100%;
+}
+
+a:link, a:visited {
+	color: #039;
+	text-decoration: none;
+}
+a:hover, a:active {
+	color: #111;
+}
+#cards-container {
+	z-index: 99;
+}
+.container{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+#cards {
+	 min-height: 100%;
+    overflow: auto;
+    height:90%;
+	width: 90%;
+	margin: 2.5em auto;
+	-webkit-transform: translateZ(50px);
+}
+
+.card {
+	font-size: 1.6em;
+	position: relative;
+	border: 1px solid #bbb;
+	box-shadow: 0 0 5px #ccc;
+	border-radius: 5px;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: 0.5s;
+	-webkit-transform: translateZ(20px);
+	height: 90%;
+	width: 90%;
+	margin: 0 auto;
+}
+/*#cards:hover .card,*/
+.card.active {
+	-webkit-transform: rotateY(180deg);
+}
+
+.card dt,
+.card dd {
+	height: 100%;
+	left: 0;
+	line-height: 150px; /* vertical align text */
+	margin: 0;
+	padding: 30px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	-webkit-backface-visibility: hidden;
+}
+.card img {
+	width: 80%;
+
+}
+.card_front {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: 85% 85%;
+}
+.card_back {
+	display: table !important;
+}
+.card dt {
+  display: block;
+ -webkit-transform: rotateY(180deg);
+
+}
+.card h1 {
+	font-size: 2em;
+	line-height: 1;
+	display: table-cell;
+	vertical-align: middle;
+}
+.card dd {
+	z-index: -1;
+}
+.pagination a {
+	font-size: 5em;
+	position: absolute;
+	top: 2.5em;
+	text-decoration: none;
+	color: #555;
+}
+.prev {
+	left: 0;
+}
+.next {
+	right: 0;
+}
+.touch .pagination {
+	display: none;
+}
+#settings-toggle {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 14px;
+	color: #999;
+	z-index: 102;
+	padding: 10px;
+}
+#settings-toggle:before {
+	content: 'Show ';
+}
+#settings-toggle.active:before {
+	content: 'Hide ';
+}
+#settings-toggle:before {
+	content: 'Show ';
+}
+.settings {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #ddd;
+	border-bottom: 1px solid #ccc;
+	font-size: 1em;
+	box-shadow: 0 0 5px #ccc;
+	text-align: left;
+	z-index: 101;
+	padding: 20px 1em 1em;
+}
+.settings.active {
+	display: block;
+}
+.settings a,
+.settings p {
+	display: block;
+	padding: 10px;
+	/*text-transform: uppercase;*/
+}
+/* ugly hack b/c i can't get an active class added to the setting that is selected 
+so adding the selected setting to the body as a class instead */
+.full .settings .full,
+.first-letter .settings .first-letter,
+.first-letter-lowercase .settings .first-letter-lowercase {
+	color: #111;
+}
+h1.first-letter, h1.first-letter-lowercase {
+	font-size: 5em;
+}

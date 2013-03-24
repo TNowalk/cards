@@ -25,6 +25,10 @@
 
 		},
 
+		hide: function() {
+			this.$el.toggleClass('active');
+		},
+
 		render : function () {
 			// var variables = { setting: this.setting };
 			this.$el.html(this.template());
@@ -37,7 +41,7 @@
 			var setting = e.currentTarget.hash;
 			this.setting = setting.replace('#','');
 			this.collection.models[0].trigger('change');
-			
+			this.hide();
 			// this.render();
 			// console.log($('#cards').find('.' + setting));
 		}

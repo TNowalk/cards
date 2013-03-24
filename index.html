@@ -7,11 +7,11 @@
         <meta name="description" content="A simple Backbone.js example with flashcards to teach kids vocabulary and spelling">
         <meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" href="css/base.css">
-
+		<script src="libs/speakClient.js"></script>
 	</head>
 
 	<body>
-		
+		<div id="audio"></div>
 		<a id="settings-toggle" href="settings">Settings</a>
 		<div id="cards-container" class="container">
 			<div id="cards"></div>
@@ -29,6 +29,7 @@
 				<h1 class="full"><%- title %></h1>
 				<h1 class="first-letter"><%- title.slice(0,1) %></h1>
 				<h1 class="first-letter-lowercase"><%- title.slice(0,1).toLowerCase() %></h1>
+				<img class="speak" src="images/play.svg" alt="Read the word" />
 			</dt>
 		
 		</script>
@@ -58,6 +59,10 @@
 		<script src="libs/zepto-touch.js"></script>
 		<script src="libs/underscore.js"></script>
 		<script src="libs/backbone-min.js"></script>
+		
+		<script src="libs/speakWorker.js"></script>
+		<script src="libs/speakGenerator.js"></script>
+		
 		<!-- script src="libs/hammer.js"></script -->
 
 		<script src="app.js"></script>

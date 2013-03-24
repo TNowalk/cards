@@ -8,7 +8,8 @@
 		events: {
 			'click': 'activateCard',
 			'swipeLeft' : 'swipeLeft',
-			'swipeRight' : 'swipeRight'
+			'swipeRight' : 'swipeRight',
+			'click .speak' : 'speak'
 		},
 
 		swipeLeft: function(e) {
@@ -28,12 +29,33 @@
 		render : function () {
 			this.$el.html(this.template(this.model.toJSON()));
 			this.delegateEvents();
-			this.$el.find('.' + app.views.settings.setting).show().siblings().hide();
+			this.$el.find('.' + app.views.settings.setting).show().siblings('h1').hide();
 			return this;
 		},
 		activateCard: function(e) {
-			console.log(e);
-			this.$el.toggleClass('active');
+			var target = e.target;
+			if (target.className !== 'speak') {
+				this.$el.toggleClass('active');
+			}
+		},
+		// 3 year-old's one request was that it say the words to her
+		speak: function(e) {
+			e.preventDefault();
+			console.log(app.views.settings.setting);
+			var read,
+				setting = app.views.settings.setting;
+			switch (setting) {
+				case 'first-letter-lowercase' :
+					read = this.model.attributes.title_plain.slice(0,1).toLowerCase();
+					break;
+				case 'first-letter' :
+					read = this.model.attributes.title_plain.slice(0,1);
+					break;
+				default :
+					read = this.model.attributes.title_plain;
+
+			}
+			speak(read, {noWorker: true});
 		}
 	});
 

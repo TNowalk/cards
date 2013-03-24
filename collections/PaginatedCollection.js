@@ -3,7 +3,7 @@
 
         model: model,
 
-        url: 'http://jasonlcrane.com/cards-wp/?json=get_recent_posts',
+        url: 'http://jasonlcrane.com/cards-wp/api/get_recent_posts/?count=-1&orderby=rand',
         
         // current page to query from the service
         page: 1,

@@ -44,16 +44,11 @@
 			console.log(app.views.settings.setting);
 			var read,
 				setting = app.views.settings.setting;
-			switch (setting) {
-				case 'first-letter-lowercase' :
-					read = this.model.attributes.title_plain.slice(0,1).toLowerCase();
-					break;
-				case 'first-letter' :
-					read = this.model.attributes.title_plain.slice(0,1);
-					break;
-				default :
-					read = this.model.attributes.title_plain;
-
+			if (setting.match('/first-letter/')) {
+				read = this.model.attributes.title_plain.slice(0,1);
+			}
+			else {
+				read = this.model.attributes.title_plain;
 			}
 			speak(read, {noWorker: true});
 		}
